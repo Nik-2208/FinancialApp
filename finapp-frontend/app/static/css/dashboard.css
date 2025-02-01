@@ -1,0 +1,86 @@
+/* dashboard.css */
+
+/* Dashboard Container */
+.dashboard-container {
+    padding: 40px;
+    background-color: #121212;
+    color: white;
+    min-width: 320px;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Finance Overview Section */
+  .finance-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    margin-top: 30px;
+  }
+  
+  /* Finance Card Styles */
+  .finance-card {
+    background: linear-gradient(145deg, #1e1e1e, #292929);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 
+      10px 10px 20px rgba(0, 0, 0, 0.6), 
+      -10px -10px 20px rgba(40, 40, 40, 0.3);
+    transform: translateZ(0) scale(1);
+    animation: floatCard 5s infinite ease-in-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .finance-card:hover {
+    transform: translateY(-12px) scale(1.08);
+    box-shadow: 
+      12px 12px 30px rgba(0, 0, 0, 0.8), 
+      -12px -12px 30px rgba(50, 50, 50, 0.5);
+  }
+  
+  .finance-card h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #9f7aea;
+    text-shadow: 2px 2px 5px rgba(106, 13, 173, 0.8);
+  }
+  
+  .finance-card p {
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Hover Glow Effect for Card */
+  .finance-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 25px 10px rgba(159, 122, 234, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .finance-card:hover::after {
+    opacity: 1;
+  }
+  
+  /* Smooth Animation */
+  @keyframes floatCard {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  

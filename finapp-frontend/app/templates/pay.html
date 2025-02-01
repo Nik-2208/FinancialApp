@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="pay-container">
+  <h1 class="animated-title">Make a Payment</h1>
+  <p class="pay-description">Securely pay by entering the recipient ID and amount.</p>
+
+  <!-- Include CSS files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pay.css') }}">
+
+  <!-- Payment Form Card -->
+  <div class="payment-card">
+    <form id="paymentForm" method="POST" action="/pay">
+      <div class="form-group">
+        <label for="recipient-id">Recipient ID</label>
+        <input type="text" id="recipient-id" name="recipient_id" placeholder="Enter Recipient ID" required>
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" step="0.01" placeholder="Enter Amount" required>
+      </div>
+      <div class="form-group">
+        <label for="payment-method">Payment Method</label>
+        <select id="payment-method" name="payment_method">
+          <option value="debit_card">Debit Card</option>
+          <option value="credit_card">Credit Card</option>
+          <option value="net_banking">Net Banking</option>
+          <option value="upi">UPI</option>
+        </select>
+      </div>
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+</div>
+
+<!-- Pop-up Modal -->
+<div id="popup" class="popup hidden">
+  <div class="popup-content">
+    <p>Payment Successful!</p>
+  </div>
+</div>
+
+<script>
+  // Listen for form submission
+  document.getElementById("paymentForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Show the pop-up
+    var popup = document.getElementById("popup");
+    popup.classList.remove("hidden");
+
+    // Optionally, you can perform AJAX submission here
+    // After 2 seconds, redirect to the dashboard page
+    setTimeout(function() {
+      window.location.href = "/dashboard";
+    }, 2000);
+  });
+</script>
+{% endblock %}

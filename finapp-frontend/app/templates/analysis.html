@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1 class="text-center">Financial Analysis</h1>
+  <p class="text-center">Analyze your spending and savings trends here.</p>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  
+  <!-- Expense Tracking -->
+  <div class="expense-tracking">
+    <h3>Expense Tracking</h3>
+    <div class="expense-list">
+      <div class="expense-item">
+        <span>Groceries</span>
+        <span class="expense-amount">- $200</span>
+      </div>
+      <div class="expense-item">
+        <span>Utilities</span>
+        <span class="expense-amount">- $120</span>
+      </div>
+      <div class="expense-item">
+        <span>Entertainment</span>
+        <span class="expense-amount">- $50</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie Chart Section -->
+  <div class="chart-container">
+    <canvas id="expenseChart"></canvas>
+  </div>
+</div>
+
+<!-- Include Chart.js for pie chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var ctx = document.getElementById('expenseChart').getContext('2d');
+  var expenseChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Groceries', 'Utilities', 'Entertainment'],
+      datasets: [{
+        label: 'Expenses',
+        data: [200, 120, 50],  // Example data
+        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+        hoverOffset: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              return '$' + tooltipItem.raw;
+            }
+          }
+        }
+      }
+    }
+  });
+</script>
+
+{% endblock %}

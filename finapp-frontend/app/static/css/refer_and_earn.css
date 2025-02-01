@@ -1,0 +1,173 @@
+/* General Styling */
+.refer-container {
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .refer-description {
+    font-size: 1.2em;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .refer-program-overview h2 {
+    font-size: 2.5em;
+    color: #6A0DAD;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .refer-program-overview ol {
+    text-align: left;
+    margin: 0 auto;
+    padding-left: 20px;
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.8;
+  }
+  
+  .refer-link-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .refer-link h3 {
+    font-size: 1.8em;
+    color: #6A0DAD;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .refer-link input {
+    padding: 12px;
+    font-size: 1.2em;
+    width: 350px;
+    max-width: 80%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .refer-link input:focus {
+    border-color: #6A0DAD;
+    box-shadow: 0 0 8px rgba(106, 13, 173, 0.5);
+  }
+  
+  .refer-link button {
+    padding: 12px 20px;
+    font-size: 1.1em;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .refer-link button:hover {
+    background-color: #8A2BE2;
+    transform: scale(1.05);
+  }
+  
+  .social-sharing {
+    margin-top: 40px;
+  }
+  
+  .social-sharing h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .social-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .social-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .social-btn:hover {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+  
+  .social-btn:nth-child(1) {
+    background-color: #3b5998; /* Facebook */
+  }
+  
+  .social-btn:nth-child(2) {
+    background-color: #1da1f2; /* Twitter */
+  }
+  
+  .social-btn:nth-child(3) {
+    background-color: #25d366; /* WhatsApp */
+  }
+  
+  .earnings-tracker {
+    margin-top: 50px;
+    font-size: 1.4em;
+    color: #333;
+  }
+  
+  .earnings-amount {
+    font-weight: bold;
+    color: #6A0DAD;
+    font-size: 1.6em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 3D Effect for Buttons */
+  .refer-link button, .social-btn {
+    transform: perspective(500px) translateZ(0);
+  }
+  
+  .refer-link button:active, .social-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .refer-container {
+      padding: 20px;
+    }
+  
+    .refer-program-overview ol {
+      font-size: 1.1em;
+    }
+  
+    .refer-link input {
+      width: 80%;
+    }
+  
+    .social-btn {
+      padding: 12px 25px;
+      font-size: 1.1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .refer-link input {
+      width: 90%;
+    }
+  
+    .social-btn {
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+  }
+  

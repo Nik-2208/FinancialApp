@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard-container">
+  <h1 class="animated-title">Welcome to Your Financial Dashboard!</h1>
+  
+  <!-- Link to External Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+  <!-- Finance Overview Cards -->
+  <div class="finance-overview">
+    <div class="finance-card income-card">
+      <h2>Total Income</h2>
+      <p>${{ total_income }}</p>
+    </div>
+    <div class="finance-card expense-card">
+      <h2>Total Expenses</h2>
+      <p>${{ total_expenses }}</p>
+    </div>
+    <div class="finance-card profit-card">
+      <h2>Net Profit</h2>
+      <p>${{ net_profit }}</p>
+    </div>
+  </div>
+
+  <!-- 3D Animated Charts -->
+  <div class="charts-section">
+    <canvas id="profit-chart" class="animated-chart"></canvas>
+  </div>
+
+  <!-- Recent Transactions -->
+  <div class="recent-transactions">
+    <h2>Recent Transactions</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for transaction in transactions %}
+        <tr>
+          <td>{{ transaction.date }}</td>
+          <td>{{ transaction.description }}</td>
+          <td>{{ transaction.category }}</td>
+          <td>{{ transaction.amount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Animated 3D Wallet Widget -->
+  <div class="wallet-widget">
+    <div class="wallet-icon animated-wallet"></div>
+    <h2>Current Wallet Balance: ${{ wallet_balance }}</h2>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // 3D Chart Animation for Profit Distribution
+  const ctx = document.getElementById('profit-chart').getContext('2d');
+  
+  // Ensure values passed to JavaScript are numbers
+  const savings = Number("{{ savings_percentage }}");
+  const investments = Number("{{ investments_percentage }}");
+  const expenses = Number("{{ expenses_percentage }}");
+  
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Savings', 'Investments', 'Expenses'],
+      datasets: [{
+        label: 'Financial Distribution',
+        data: [savings, investments, expenses], // Dynamic chart values
+        backgroundColor: ['#6A0DAD', '#4169e1', '#f05454']
+      }]
+    },
+    options: {
+      animation: {
+        animateScale: true
+      }
+    }
+  });
+</script>
+{% endblock %}

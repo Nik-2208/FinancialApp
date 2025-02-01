@@ -1,0 +1,171 @@
+/* Pay Container */
+.pay-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #121212;
+    min-height: 100vh;
+    color: white;
+    box-sizing: border-box;
+  }
+  
+  /* Animated Title & Description */
+  .animated-title {
+    font-size: 3em;
+    color: #9f7aea;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+    text-align: center;
+  }
+  
+  .pay-description {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ccc;
+  }
+  
+  /* Payment Card */
+  .payment-card {
+    background: linear-gradient(145deg, #1d1d1d, #292929);
+    border-radius: 25px;
+    padding: 50px 60px;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.8), -15px -15px 30px rgba(50,50,50,0.5);
+    width: 100%;
+    max-width: 500px;
+    perspective: 800px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s, box-shadow 0.4s;
+    margin-bottom: 40px;
+  }
+  
+  .payment-card:hover {
+    transform: rotateY(5deg) rotateX(3deg) translateY(-10px);
+    box-shadow: 20px 20px 40px rgba(0,0,0,0.9), -20px -20px 40px rgba(50,50,50,0.6);
+  }
+  
+  /* Form Styles */
+  .payment-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: #9f7aea;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 12px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    background-color: #292929;
+    color: white;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5), -3px -3px 10px rgba(40,40,40,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    transform: scale(1.02);
+  }
+  
+  /* Payment Button */
+  .payment-card button {
+    padding: 15px 25px;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5), -2px -2px 8px rgba(40,40,40,0.5);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+  }
+  
+  .payment-card button:hover {
+    transform: translateY(-5px);
+    background-color: #8A2BE2;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.7), -3px -3px 12px rgba(50,50,50,0.7);
+  }
+  
+  /* Popup Modal */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .popup.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .popup-content {
+    background: #292929;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #9f7aea;
+    font-size: 1.5em;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.7);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .pay-container {
+      padding: 20px;
+    }
+  
+    .payment-card {
+      padding: 30px 20px;
+      max-width: 90%;
+    }
+  
+    .animated-title {
+      font-size: 2.5em;
+    }
+  
+    .payment-card button {
+      font-size: 1em;
+      padding: 12px 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .payment-card {
+      padding: 20px 15px;
+      max-width: 280px;
+    }
+  
+    .animated-title {
+      font-size: 2.2em;
+    }
+  
+    .payment-card button {
+      padding: 10px 18px;
+      font-size: 0.9em;
+    }
+  }
+  

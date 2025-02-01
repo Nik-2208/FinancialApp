@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/transaction_tracking.css') }}">
+
+    <h1>Transaction Tracking</h1>
+    <p>Keep track of your financial transactions and expenses.</p>
+
+    <!-- Transaction Form -->
+    <div class="form-container">
+      <form method="POST" class="transaction-form">
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" required placeholder="Enter description">
+        
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" step="0.01" required placeholder="Enter amount">
+        
+        <button type="submit">Add Transaction</button>
+      </form>
+    </div>
+
+    <!-- Total Expenses -->
+    <div class="expense-summary">
+      <h3>Total Expenses: <span id="total-expenses">${{ total_expenses }}</span></h3>
+    </div>
+
+    <!-- Transaction History -->
+    <div class="transaction-history">
+      <h2>Transaction History</h2>
+      <div class="transactions-container">
+        {% for transaction in transactions %}
+          <div class="transaction-card">
+            <div class="card-inner">
+              <div class="card-front">
+                <h3>{{ transaction.description }}</h3>
+                <p>${{ transaction.amount }}</p>
+              </div>
+              <div class="card-back">
+                <p>Amount: ${{ transaction.amount }}</p>
+                <p>Description: {{ transaction.description }}</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

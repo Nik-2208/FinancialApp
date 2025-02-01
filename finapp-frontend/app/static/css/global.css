@@ -1,0 +1,130 @@
+/* General Styles */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    overflow-x: hidden;
+    text-align: center; /* Ensures all text is centered */
+  }
+  
+  /* Buttons */
+  button {
+    padding: 12px 25px;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5),
+                -2px -2px 8px rgba(40, 40, 40, 0.5);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s ease;
+    margin: 10px 0; /* Centers buttons with space between */
+  }
+  
+  button:hover {
+    transform: translateY(-5px);
+    background-color: #8A2BE2;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7),
+                -3px -3px 12px rgba(50, 50, 50, 0.7);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-100%); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+    padding: 15px 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center; /* Centers navbar items */
+    align-items: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6),
+                -5px -5px 15px rgba(50, 50, 50, 0.4);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: slideIn 1.5s ease-in-out;
+  }
+  
+  .navbar-logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #9f7aea;
+    text-shadow: 2px 2px 5px rgba(159, 122, 234, 0.5);
+    cursor: pointer;
+    margin-right: 30px; /* Spacing between logo and navbar items */
+  }
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar li {
+    position: relative;
+  }
+  
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    background: linear-gradient(145deg, #292929, #1c1c1c);
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5),
+                -3px -3px 5px rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    background: #6A0DAD;
+    transform: translateY(-3px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7),
+                -3px -3px 15px rgba(50, 50, 50, 0.5);
+    color: #ffffff;
+  }
+  
+  .navbar a.active {
+    background: #8A2BE2;
+    color: white;
+  }
+  
+  /* Responsive Navbar */
+  @media only screen and (max-width: 768px) {
+    .navbar ul {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      background: linear-gradient(145deg, #1f1f1f, #292929);
+      border-radius: 15px;
+      padding: 15px;
+    }
+  
+    .navbar a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  

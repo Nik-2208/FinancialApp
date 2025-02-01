@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="refer-container">
+    <h1 class="animated-title">Refer and Earn</h1>
+    <p class="refer-description">Invite your friends and earn rewards when they sign up and make their first payment!</p>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/refer_and_earn.css') }}">
+    <!-- Referral Program Overview -->
+    <div class="refer-program-overview">
+      <h2>How It Works</h2>
+      <ol>
+        <li>Invite your friends using your referral link.</li>
+        <li>When they sign up and make their first payment, you both earn rewards!</li>
+        <li>Track your earnings and refer as many friends as you like!</li>
+      </ol>
+    </div>
+
+    <!-- Referral Link Section -->
+    <div class="refer-link-container">
+      <h3>Your Referral Link</h3>
+      <div class="refer-link">
+        <input type="text" id="referral-link" value="{{ referral_link }}" readonly>
+        <button id="copy-btn" onclick="copyReferralLink()">Copy Link</button>
+      </div>
+      <p>Share this link with your friends to earn rewards!</p>
+    </div>
+
+    <!-- Social Media Sharing -->
+    <div class="social-sharing">
+      <h3>Share on Social Media</h3>
+      <p>Spread the word and share your referral link on social media:</p>
+      <div class="social-buttons">
+        <button class="social-btn" onclick="shareOnSocial('facebook')">Facebook</button>
+        <button class="social-btn" onclick="shareOnSocial('twitter')">Twitter</button>
+        <button class="social-btn" onclick="shareOnSocial('whatsapp')">WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- Referral Earnings Tracker -->
+    <div class="earnings-tracker">
+      <h3>Your Earnings</h3>
+      <p>You have earned <span class="earnings-amount">${{ earnings }}</span> from your referrals.</p>
+      <p>Keep referring to earn more!</p>
+    </div>
+  </div>
+
+  <!-- JavaScript for Referral Link Copying and Social Sharing -->
+  <script>
+    // Function to copy referral link to clipboard
+    function copyReferralLink() {
+      const link = document.getElementById('referral-link');
+      link.select();
+      document.execCommand('copy');
+      alert('Referral link copied to clipboard!');
+    }
+
+    // Dummy social sharing function (replace with actual logic)
+    function shareOnSocial(platform) {
+      let url = document.getElementById('referral-link').value;
+      let shareUrl = '';
+
+      if (platform === 'facebook') {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      } else if (platform === 'twitter') {
+        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
+      } else if (platform === 'whatsapp') {
+        shareUrl = `https://wa.me/?text=${encodeURIComponent(url)}`;
+      }
+
+      window.open(shareUrl, '_blank');
+    }
+  </script>
+{% endblock %}

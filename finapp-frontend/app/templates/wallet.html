@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="wallet-container">
+    <h1 class="animated-title">Your Wallet</h1>
+    <p class="wallet-description">View and manage your wallet balance here.</p>
+
+    <!-- Link to external stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wallet.css') }}">
+
+    <!-- 3D Debit Card Section -->
+    <div class="card-container">
+      <div class="debit-card">
+        <div class="card-front">
+          <div class="card-logo">
+            <img src="/static/images/wallet-icon.svg" alt="Wallet Icon">
+          </div>
+          <h2 class="card-number">**** **** **** 1234</h2>
+          <div class="card-info">
+            <p class="card-name">John Doe</p>
+            <p class="card-expiry">Expiry: 12/25</p>
+          </div>
+        </div>
+        <div class="card-back">
+          <div class="card-security">
+            <p class="cvv">CVV: ***</p>
+            <div class="stripe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wallet Widget -->
+    <div class="wallet-widget">
+      <h2>Your Wallet</h2>
+      <div class="debit-card">
+        <div class="card-header">
+          <span class="card-logo">Bank</span>
+          <span class="card-type">VISA</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-number">**** **** **** 1234</h2>
+          <div class="card-details">
+            <span class="card-name">John Doe</span>
+            <span class="card-expiry">12/24</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="chip">🔒</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="recent-transactions">
+      <h3>Recent Transactions</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Payment to John</td>
+            <td>01/25/2025</td>
+            <td>-$150.00</td>
+            <td>Completed</td>
+          </tr>
+          <tr>
+            <td>Payment from Sarah</td>
+            <td>01/20/2025</td>
+            <td>+$200.00</td>
+            <td>Completed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

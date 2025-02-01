@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial App</title>
+  <!-- Global and Dashboard Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      Financial App
+    </div>
+    <ul class="navbar-menu">
+      <li><a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">Dashboard</a></li>
+      <li><a href="/wallet" class="{% if request.path == '/wallet' %}active{% endif %}">Wallet</a></li>
+      <li><a href="/transaction-tracking" class="{% if request.path == '/transaction-tracking' %}active{% endif %}">Transactions</a></li>
+      <li><a href="/analysis" class="{% if request.path == '/analysis' %}active{% endif %}">Analysis</a></li>
+      <li><a href="/refer-and-earn" class="{% if request.path == '/refer-and-earn' %}active{% endif %}">Refer &amp; Earn</a></li>
+      <li><a href="/pay" class="{% if request.path == '/pay' %}active{% endif %}">Pay</a></li>
+    </ul>
+  </nav>
+  
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
